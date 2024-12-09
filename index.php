@@ -4,7 +4,7 @@
 
 <?php
     if(isset($_SESSION["userLoggedIn"])){
-        echo "user is logged as : " . $_SESSION["userLoggedIn"];
+        echo "user is logged as : " . $userLoggedInObj->getName();
     }else{
         echo "not logged in";
     }
