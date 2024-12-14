@@ -1,16 +1,22 @@
 <?php
-
     class ButtonProvider{
-        public static function createButton($text, $imageSrc, $action, $class){
+        public static $signInFunction = "notSignedIn()";
+
+        public static function createLink($link) {
+            return User::isLoggedIn() ? $link : ButtonProvider::$signInFunction;
+        }
+
+
+        public static function createButton($text, $imageSrc, $action, $class) {
 
             $image = ($imageSrc == null) ? "" : "<img src='$imageSrc'>";
-
-            return "
-                <button class='$class btn btn-light' type='button' onclick='$action'>
-                    $image
-                    <span class='text'>$text</span>                
-                </button>
-            ";
+    
+            $action  = ButtonProvider::createLink($action);
+    
+            return "<button class='$class btn btn-light' onclick='$action'>
+                        $image
+                        <span class='text'>$text</span>
+                    </button>";
         }
     }
 

@@ -12,40 +12,50 @@ class User
         $query->execute();
 
         $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
+
+        // Handle the case where the query fails to fetch data
+        if ($this->sqlData === false) {
+            // Optionally, you can throw an exception or set a default value
+            $this->sqlData = null;
+        }
+    }
+
+    public static function isLoggedIn() {
+        return isset($_SESSION["userLoggedIn"]);
     }
 
     public function getUsername()
     {
-        return $this->sqlData["username"];
+        return $this->sqlData ? $this->sqlData["username"] : null;
     }
 
     public function getName()
     {
-        return $this->sqlData["firstName"] . " " . $this->sqlData["lastName"];
+        return $this->sqlData ? $this->sqlData["firstName"] . " " . $this->sqlData["lastName"] : null;
     }
 
     public function getFirstName()
     {
-        return $this->sqlData["firstName"];
+        return $this->sqlData ? $this->sqlData["firstName"] : null;
     }
 
     public function getLastName()
     {
-        return $this->sqlData["lastName"];
+        return $this->sqlData ? $this->sqlData["lastName"] : null;
     }
 
     public function getEmail()
     {
-        return $this->sqlData["email"];
+        return $this->sqlData ? $this->sqlData["email"] : null;
     }
 
     public function getProfilePic()
     {
-        return $this->sqlData["profilePic"];
+        return $this->sqlData ? $this->sqlData["profilePic"] : null;
     }
 
     public function getSignUpDate()
     {
-        return $this->sqlData["signUpDate"];
+        return $this->sqlData ? $this->sqlData["signUpDate"] : null;
     }
 }
