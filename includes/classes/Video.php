@@ -210,4 +210,29 @@ class Video
 
         return $query->rowCount() > 0 ;
     }
+
+    public function getNumberOfComments(){
+        $id = $this->getId();
+        $query = $this->con->prepare("SELECT * FROM comments where videoId=:videoId");
+        $query->bindParam(":videoId", $id);
+        $query->execute();
+
+        return $query->rowCount();
+    }
+
+    public function getComments(){
+        $id = $this->getId();
+        $query = $this->con->prepare("SELECT * FROM comments where videoId=:videoId AND responseTo=0 ORDER BY datePosted DESC");
+        $query->bindParam(":videoId", $id);
+        $query->execute();
+
+        $comments = array();
+
+        while($row = $query->fetch(PDO::FETCH_ASSOC)){
+            $comment = new Comment($this->con, $row, $this->userLoggedInObj, $id);
+            array_push($comments, $comment);
+        }
+
+        return $comments;
+    }
 }
