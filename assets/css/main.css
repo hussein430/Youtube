@@ -472,3 +472,80 @@ textarea {
     font-weight: 500;
     cursor: pointer;
 }
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Suggestions Videos */
+
+.videoGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.suggestions .videoGridItem{
+    display: flex;
+    height: auto;
+}
+
+.videoGridItem{
+    margin-right: 4px;
+    margin-bottom: 24px;
+}
+
+.suggestions .videoGridItem .thumbnail{
+    margin-right: 8px;
+}
+
+.videoGridItem .thumbnail{
+    position: relative;
+    width: 210px;
+    height: 118px;
+}
+
+.videoGridItem .thumbnail img{
+    width: 100%;
+    height: 100%;
+}
+
+.videoGridItem .thumbnail .duration{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 2px 4px;
+    font-size: 12px;
+}
+
+.videoGridItem .details{
+    padding-right: 24px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.suggestions .videoGridItem .details{
+    padding-right: 0;
+    flex: 1;
+}
+
+.videoGridItem .details .title{
+    margin: 8px 0;
+    max-height: 32px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    color: #212529;
+}
+
+.videoGridItem .details .username,
+.videoGridItem .details .stats{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 13px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
