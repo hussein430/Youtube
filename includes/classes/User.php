@@ -14,7 +14,8 @@ class User
         $this->sqlData = $query->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function isLoggedIn() {
+    public static function isLoggedIn()
+    {
         return isset($_SESSION["userLoggedIn"]);
     }
 
@@ -53,18 +54,20 @@ class User
         return $this->sqlData ? $this->sqlData["signUpDate"] : null;
     }
 
-    public function isSubscribedTo($userTo){
+    public function isSubscribedTo($userTo)
+    {
         $username = $this->getUsername();
 
         $query = $this->con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo AND userFrom=:userFrom");
         $query->bindParam(":userTo", $userTo);
-        $query->bindParam(":userFrom", $username); 
+        $query->bindParam(":userFrom", $username);
         $query->execute();
 
         return $query->rowCount() > 0;
     }
 
-    public function getSubscriberCount(){
+    public function getSubscriberCount()
+    {
         $username = $this->getUsername();
 
         $query = $this->con->prepare("SELECT * FROM subscribers WHERE userTo=:userTo");
@@ -72,5 +75,22 @@ class User
         $query->execute();
 
         return $query->rowCount();
+    }
+
+    public function getSubscriptions()
+    {
+        $username = $this->getUsername();
+        $subs = array();
+
+        $query = $this->con->prepare("SELECT userTo FROM subscribers WHERE userFrom=:userFrom");
+        $query->bindParam(":userFrom", $username);
+        $query->execute();
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $user = new User($this->con, $row["userTo"]);
+            array_push($subs, $user);
+        }
+
+        return $subs;
     }
 }
