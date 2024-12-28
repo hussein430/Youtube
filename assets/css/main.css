@@ -582,6 +582,7 @@ textarea {
 
 .videoGrid.large .videoGridItem .details{
     max-width: 600px;
+    flex: 1;
 }
 
 .videoGrid.large .videoGridItem .details .title{
@@ -620,4 +621,56 @@ textarea {
 
 .videoGridHeader a:last-child::after{
     content: "";
+}
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* Style the user icon on the header */
+
+.signInLink{
+    color: #f00;
+    margin-left: 15px;
+}
+
+
+/* ////////////////////////////////////////////////////////////////////////////////// */
+/* Style the navigation menu */
+
+#sideNavContainer .navigationItems{
+    overflow-y: auto;
+}
+
+#sideNavContainer .navigationItem{
+    height: 40px;
+    display: flex;
+}
+
+#sideNavContainer .navigationItem img{
+    height: 18px;
+    margin-right: 27px;
+}
+
+#sideNavContainer .navigationItem span{
+    flex: 1;
+    color: #111;
+    font-size: 14px;
+}
+
+#sideNavContainer .navigationItem a{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+}
+
+#sideNavContainer .navigationItem a:hover{
+    background-color: #e8e8e8;
+}
+
+#sideNavContainer .heading{
+    color: rgba(17, 17, 17, 0.6);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-top: 1px solid #e8e8e8;
+    display: block;
 }
