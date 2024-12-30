@@ -674,3 +674,109 @@ textarea {
     border-top: 1px solid #e8e8e8;
     display: block;
 }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////// */
+/* Style The Profile Page */
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.coverPhotoContainer {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.coverPhotoContainer .coverPhoto {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    vertical-align: middle;
+}
+
+.coverPhotoContainer .name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 5px;
+}
+
+.profileHeader{
+    display: flex;
+    padding: 15px 100px 0 100px;
+    height: 100px;
+}
+
+.userInfoContainer{
+    display: flex;
+    flex: 1;
+}
+
+.profileHeader .userInfoContainer .profileImage{
+    height: 100px;
+    width: 100px;
+}
+
+.profileHeader .userInfo{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profileHeader .userInfo .title{
+    font-size: 24px;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 5px;
+}
+
+.profileHeader .userInfo .subscriberCount{
+    font-size: 14px;
+    color: rgba(17, 17, 17, 0.6);
+}
+
+.profileHeader .buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.profileHeader .buttonContainer .buttonItem{
+    align-items: center;
+    display: flex;
+}
+
+.profileHeader .buttonContainer .buttonItem button{
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.profileContainer .channelContent{
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+}
+
+.nav-item a{
+    color :rgba(17, 17, 17, 0.6);
+}
+
+.channelContent .section .values{
+    display: flex;
+    flex-direction: column;
+    color: rgba(17, 17, 17, 0.6);
+}
