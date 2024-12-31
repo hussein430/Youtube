@@ -12,5 +12,6 @@ class Constants {
 
 
     public static $loginFailed = "Your email or password was incorrect";
+    public static $passwordIncorrect = "Your old password is incorrect";
 }
 ?>
