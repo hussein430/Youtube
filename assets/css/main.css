@@ -801,3 +801,41 @@ textarea {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Style the video edit page */
+
+.editVideoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.editVideoContainer .topSection{
+    display: flex;
+}
+
+.topSection .videoPlayer{
+    max-height: 300px;
+    flex: 1;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+    width: 210px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem{
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem.selected{
+    border: 2px solid #2692e6;
+}
+
+.editVideoContainer .topSection .thumbnailItemsContainer .thumbnailItem img{
+    width: 100%;
+    cursor: pointer;
+}
